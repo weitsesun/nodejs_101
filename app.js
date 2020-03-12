@@ -28,12 +28,30 @@
 /**
  * Learn File System module
  */
-const fs = require('fs');
+// const fs = require('fs');
 // const files = fs.readdirSync('./');
 // console.log(files);
-fs.readdir('$', (err, files) => {
-  if(err) console.log('Error', err);
-  else console.log('Result', files)
-})
+// fs.readdir('$', (err, files) => {
+//   if(err) console.log('Error', err);
+//   else console.log('Result', files)
+// })
+
+/**
+ * Learn event module
+ * Event - A signal that something has happened
+ */
+// const EventEmitter = require('events'); //EventEmitter is a class!!!
+// const emitter = new EventEmitter();
+
+// const Logger = require('./logger');
+// const logger = new Logger()
+
+// // Register a listener
+// logger.on('messageLogged', (eventArg) => {
+//   console.log('Listener called', eventArg);
+// })
+
+// logger.log('message');
+
 
 
