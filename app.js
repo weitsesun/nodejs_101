@@ -20,7 +20,20 @@
 /**
  * Learn OS module
  */
-const os = require('os');
-let totalMemory = os.totalmem();
-let freeMemory = os.freemem();
-console.log(`Total Memory: ${totalMemory} \nFree Memory: ${freeMemory}`)
+// const os = require('os');
+// let totalMemory = os.totalmem();
+// let freeMemory = os.freemem();
+// console.log(`Total Memory: ${totalMemory} \nFree Memory: ${freeMemory}`)
+
+/**
+ * Learn File System module
+ */
+const fs = require('fs');
+// const files = fs.readdirSync('./');
+// console.log(files);
+fs.readdir('$', (err, files) => {
+  if(err) console.log('Error', err);
+  else console.log('Result', files)
+})
+
+
