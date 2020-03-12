@@ -13,8 +13,14 @@
 // const log = require('./logger');
 // log('hi')
 
-const path = require('path');
+// const path = require('path');
+// let pathObj = path.parse(__filename);
+// console.log(pathObj);
 
-let pathObj = path.parse(__filename);
-
-console.log(pathObj);
+/**
+ * Learn OS module
+ */
+const os = require('os');
+let totalMemory = os.totalmem();
+let freeMemory = os.freemem();
+console.log(`Total Memory: ${totalMemory} \nFree Memory: ${freeMemory}`)
