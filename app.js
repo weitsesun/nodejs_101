@@ -10,8 +10,11 @@
  */
 // console.log(module) 
 
-/**
- * 
- */
-const logger = require('./logger')
-console.log(logger)
+// const log = require('./logger');
+// log('hi')
+
+const path = require('path');
+
+let pathObj = path.parse(__filename);
+
+console.log(pathObj);
