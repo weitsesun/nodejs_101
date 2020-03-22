@@ -1,11 +1,34 @@
+const startupDebugger = require('debug')('app:startup');
+const dbDebugger = require('debug')('app:db');
+const config = require('config');
 const Joi = require('@hapi/joi');
 const dotenv = require('dotenv');
 const express = require('express');
+const helmet = require('helmet');
+const logger = require('./logger');
+const morgan =require('morgan');
 const app = express();
 
 dotenv.config();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+app.use(helmet());
+
+app.use(logger);
+
+// Configuration
+console.log('Application name: ' + config.get('name'));
+console.log('Mail server: ' + config.get('mail.host'));
+console.log('Mail Password: ' + config.get('mail.password'));
+
+if(app.get('env') === 'development') {
+  app.use(morgan('tiny'));
+  startupDebugger('Morgan enabled...')
+}
+
+dbDebugger('Connected to the database....');
 
 const courses = [
   { id: 1, name: 'course1' },
